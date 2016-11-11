@@ -47,9 +47,6 @@
             <from id="reportIncidentStarter" uri="direct:reportIncident"/>
             <log id="logReportIncident" message="reportIncident Call {body}"/>
             <process id="reportIncidentProcess" ref="reportIncidentProcessor"/>
-            
-            <process id="ObjectToXml" ref="ObjectToXml"/>
-            
             <!-- <marshal id="_marshal1">
                 <jaxb contextPath="com.mycompany.camel.cxf.code.first.spring.incident" prettyPrint="true"/>
             </marshal>
@@ -58,6 +55,7 @@
             <marshal ref="myJaxb"/> 
         	 -->
             <!-- <to id="_to3" uri="file:/work/data/"/> -->
+            <process id="ObjectToXml" ref="ObjectToXml"/>
             <to id="_to1" uri="log:{body}"/>
         </route>
         <route id="status">
